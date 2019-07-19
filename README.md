@@ -11,3 +11,6 @@ kaggle titanic
 
 ppt 4장 분량으로 7월 23일
 개인플레이나 조로
+
+1일차 과제 : Numpy
+2일차 과제 : Pandas
