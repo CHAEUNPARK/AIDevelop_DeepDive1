@@ -11,14 +11,14 @@ from sklearn.model_selection import GridSearchCV
 train = preTrain.train
 test = preTrain.test
 
-print(train.shape)
-print(test.shape)
+# print(train.shape)
+# print(test.shape)
 
 Y_train_data = pd.DataFrame(train['Survived'].values.reshape(-1,1), columns=['Survived'])
 X_train_data = train.drop(['Survived'], axis=1)
 
-print(X_train_data.shape)
-print(Y_train_data.shape)
+# print(X_train_data.shape)
+# print(Y_train_data.shape)
 
 # X_train, X_test, y_train, y_test = train_test_split(X_train_data, Y_train_data, test_size=0, random_state=0)
 
