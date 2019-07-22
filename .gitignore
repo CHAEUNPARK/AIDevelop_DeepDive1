@@ -3,3 +3,4 @@ venv/
 util/__pycache__/
 *.csv
 CreditCard/__pycache__/
+Titanic/__pycache__/
