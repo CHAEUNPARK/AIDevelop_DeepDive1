@@ -6,12 +6,14 @@ from sklearn.tree import DecisionTreeClassifier
 import matplotlib.pyplot as plt
 import graphviz
 from sklearn.tree import export_graphviz
+from util.logfile import logger
 wine = load_wine()
 print(wine.DESCR)
 
 data = wine.data
 label = wine.target
 # columns = wine.feature_names
+logger.debug(wine.DESCR)
 
 x_train, x_test, y_train, y_test = train_test_split(data, label, stratify=label, random_state=0)
 tree = DecisionTreeClassifier(random_state=0)
