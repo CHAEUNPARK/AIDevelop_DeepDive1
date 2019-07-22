@@ -33,10 +33,18 @@ def lineWidth():
     plt.plot(x, y)
     plt.show()
 
+def lineMarker():
+    years = [x for x in range(1950, 2011, 10)]
+    gdp = [y for y in np.random.randint(300, 10000, size=7)]
+    plt.plot(years, gdp, marker='o', markersize=6, markeredgewidth=1,
+             markeredgecolor='red', markerfacecolor='green')
+    plt.show()
+
 if __name__ == '__main__':
     # plot()
     # plot1()
     # plot2()
     # lineStyle()
-    lineWidth()
+    # lineWidth()
+    lineMarker()
     pass
