@@ -20,8 +20,15 @@ def plot2():
     plt.plot(years, gdp, color='g')
     plt.show()
 
+def lineStyle():
+    t = np.arange(0, 5, 0.2)
+    a = plt.plot(t, t, 'r--', t, t**2, 'bs', t, t**3, 'g^')
+    plt.show()
+    print(a)
+
 if __name__ == '__main__':
     # plot()
     # plot1()
     # plot2()
+    lineStyle()
     pass
