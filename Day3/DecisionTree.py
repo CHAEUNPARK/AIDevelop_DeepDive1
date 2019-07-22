@@ -39,3 +39,18 @@ with open('./Day3/tree1.dot') as file_reader:
 
 dot = graphviz.Source(dot_graph)                #dot_graph의 source 저장
 dot.render(filename='./Day3/tree1.png')         #png로 저장
+
+
+#### plt로 출력
+print("wine.data.shape=>", wine.data.shape)
+n_feature = wine.data.shape[1]
+print(n_feature)
+idx = np.arange(n_feature)
+print("idx=>", idx)
+feature_imp = tree.feature_importances_
+plt.barh(idx, feature_imp, align='center')
+plt.yticks(idx, wine.feature_names)
+plt.xlabel('feature importance', size=15)
+plt.ylabel('feature', size=15)
+
+plt.show()
