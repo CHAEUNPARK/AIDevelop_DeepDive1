@@ -1,22 +1,25 @@
 import pandas as pd
-
+#  data load
 train = pd.read_csv('./Titanic/train.csv')
 test = pd.read_csv('./Titanic/test.csv')
 gender_submission = pd.read_csv('./Titanic/gender_submission.csv')
 
+# remove columns
 del train['Cabin']
 del train['Ticket']
 del test['Cabin']
 del test['Ticket']
 
+# fill missing data
 train = train.fillna({"Embarked" : "S"})
 
+# mapping
 embarked_mapping = {"S":1, "C":2, "Q":3}
 train['Embarked'] = train['Embarked'].map(embarked_mapping)
 test['Embarked'] = test['Embarked'].map(embarked_mapping)
 
-train.head()
 
+# Title Preprocessing
 combine = [train, test]
 
 for dataset in combine:
@@ -41,10 +44,15 @@ for dataset in combine:
     dataset['Title'] = dataset['Title'].map(title_mapping)
     dataset['Title'] = dataset['Title'].fillna(0)
 
-train.head()
 
+# Name Drop
 del train['Name']
 del train['PassengerId']
 del test['Name']
 combine = [train, test]
-train.head()
+
+# Sex Preprocessing
+sex_mapping = {"male" : 0, "female" : 1}
+for dataset in combine :
+    dataset['Sex'] = dataset['Sex'].map(sex_mapping)
+
