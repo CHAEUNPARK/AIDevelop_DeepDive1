@@ -99,6 +99,15 @@ def lineLim():
     plt.ylim(0.0, 30.0)
     plt.show()
 
+def scatter():
+    data = np.random.rand(10, 2)
+    print(data)
+    print(data.shape)
+
+    plt.scatter(data[:,0], data[:,1])
+    plt.show()
+
+
 
 if __name__ == '__main__':
     # plot()
@@ -112,5 +121,6 @@ if __name__ == '__main__':
     # lineLegend()
     # lineAxis()
     # lineLabelTicks()
-    lineLim()
+    # lineLim()
+    scatter()
     pass
