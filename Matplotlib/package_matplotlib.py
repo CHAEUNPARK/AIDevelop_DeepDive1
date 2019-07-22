@@ -151,6 +151,16 @@ def hist1():
     plt.xlabel('data')
     plt.show()
 
+def file_read():
+    X, Y = [], []
+    for line in open('./Matplotlib/data.txt', 'r'):
+        values = [float(s) for s in line.split()]
+        X.append(values[0])
+        Y.append(values[1])
+    plt.plot(X, Y)
+    plt.show()
+
+
 if __name__ == '__main__':
     # plot()
     # plot1()
@@ -170,5 +180,6 @@ if __name__ == '__main__':
     # Barh()
     # Pie()
     # hist()
-    hist1()
+    # hist1()
+    file_read()
     pass
