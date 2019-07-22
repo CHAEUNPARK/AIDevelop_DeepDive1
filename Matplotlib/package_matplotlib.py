@@ -88,6 +88,18 @@ def lineLabelTicks():
     plt.legend(('Men'))
     plt.show()
 
+def lineLim():
+    x = [1, 2, 3, 4, 5]
+    y = [1, 4, 9, 16, 25]
+    plt.plot(x, y)
+    plt.title('Plot of y sv x')
+    plt.xlabel('x axis')
+    plt.ylabel('y axis')
+    plt.xlim(0.0, 7.0)
+    plt.ylim(0.0, 30.0)
+    plt.show()
+
+
 if __name__ == '__main__':
     # plot()
     # plot1()
@@ -99,5 +111,6 @@ if __name__ == '__main__':
     # lineLabel()
     # lineLegend()
     # lineAxis()
-    lineLabelTicks()
+    # lineLabelTicks()
+    lineLim()
     pass
