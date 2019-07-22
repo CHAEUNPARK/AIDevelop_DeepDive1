@@ -17,3 +17,16 @@ plt.title('Fraud class histogram')
 plt.xlabel('Class')
 plt.ylabel('Frequency')
 plt.show()
+
+y = data['Class']
+X = data.drop(columns='Class')
+y = y.values.reshape((-1, 1))
+print(X.shape)
+print(y.shape)
+# 데이터 train, test 나누기
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
+
+print("Number transactions X_train dataset: ", X_train.shape)
+print("Number transactions y_train dataset: ", y_train.shape)
+print("Number transactions X_test dataset: ", X_test.shape)
+print("Number transactions y_test dataset: ", y_test.shape)
