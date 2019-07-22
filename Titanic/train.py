@@ -23,3 +23,10 @@ for dataset in combine:
     dataset['Title'] = dataset.Name.str.extract(' ([A-Za-z]+)\.', example=False)
 
 pd.crosstab(train['Title'], train['Sex'])
+
+for dataset in combine:
+    dataset['Title'] = dataset['Title'].replace(['Lady', 'Capt', 'Col',
+                                                 'Don', 'Dr', 'Major',
+                                                 'Rev', 'Jonkheer', 'Dona'], 'Rare')
+
+    dataset['Title'] = dataset['Title'].replace(['Countess', 'Lady', 'Sir'], 'Royal')
