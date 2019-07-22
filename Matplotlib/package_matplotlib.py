@@ -107,6 +107,13 @@ def scatter():
     plt.scatter(data[:,0], data[:,1])
     plt.show()
 
+def scatter1():
+    x = np.random.rand(10)
+    y = np.random.rand(10)
+    z = np.sqrt(x**2 + y**2)
+    plt.subplot(321)
+    plt.scatter(x, y, s=80, c = z, marker='>')
+    plt.show()
 
 
 if __name__ == '__main__':
@@ -122,5 +129,6 @@ if __name__ == '__main__':
     # lineAxis()
     # lineLabelTicks()
     # lineLim()
-    scatter()
+    # scatter()
+    scatter1()
     pass
