@@ -83,6 +83,7 @@ test['AgeGroup'] = test['AgeGroup'].map(age_mapping)
 train = train.drop(['Age'], axis = 1)
 test = test.drop(['Age'], axis = 1)
 
+# Fare Preprocessing
 train['FareBand'] = pd.qcut(train['Fare'], 4, labels=[1, 2, 3, 4])
 test['FareBand'] = pd.qcut(test['Fare'], 4, labels=[1, 2, 3, 4])
 
