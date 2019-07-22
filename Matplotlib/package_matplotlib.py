@@ -115,6 +115,14 @@ def scatter1():
     plt.scatter(x, y, s=80, c = z, marker='>')
     plt.show()
 
+def barchart():
+    N = 5
+    menMeans = (20, 35, 30, 35, 27)
+    width = 0.01
+    ind = np.arange(N)
+    print(ind)
+    plt.bar(ind, menMeans)
+    plt.show()
 
 if __name__ == '__main__':
     # plot()
@@ -130,5 +138,6 @@ if __name__ == '__main__':
     # lineLabelTicks()
     # lineLim()
     # scatter()
-    scatter1()
+    # scatter1()
+    barchart()
     pass
