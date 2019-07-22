@@ -53,3 +53,19 @@ print("Before OverSampling, counts of label '0': {}\n".format(sum(y_train==0)))
 print("y_train", y_train)
 print("y_train.ravel", y_train.ravel())
 
+sm = SMOTE(random_state=2)
+X_train_res, y_train_res = sm.fit_sample(X_train, y_train.ravel())
+
+print('After OverSampling, the shape of train_X: {}'.format(X_train_res.shape))
+print('After OverSampling, the shape of train_y: {}'.format(y_train_res.shape))
+
+print("After OverSampling, counts of y_train_res '1': {}".format(sum(y_train_res==1)))
+print("After OverSampling, counts of y_train_res '0': {}".format(sum(y_train_res==0)))
+
+print("After OverSampling, counts of test_X: {}".format(X_test.shape))
+print("After OverSampling, counts of test_y: {}".format(y_test.shape))
+
+# 실제 정확도를 알아보기 위한 새로운 데이터 갯수
+print("before OverSampling, counts of label '1': {}".format(sum(y_test==1)))
+print("before OverSampling, counts of label '0': {}".format(sum(y_test==0)))
+
