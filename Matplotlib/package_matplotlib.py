@@ -54,6 +54,18 @@ def lineLabel():
     plt.plot(a, c+d, 'k', label='Total message length')
     plt.show()
 
+def lineLegend():
+    a = b = np.arange(0, 3, .02)
+    c = np.exp(a)
+    d = c[::-1]
+
+    plt.plot(a, c, 'k--', label = 'Model length')
+    plt.plot(a, d, 'k:', label = 'Data length')
+    plt.plot(a, c+d, 'k', label='Total message length')
+
+    plt.legend()
+    plt.show()
+
 if __name__ == '__main__':
     # plot()
     # plot1()
@@ -62,5 +74,6 @@ if __name__ == '__main__':
     # lineWidth()
     # lineMarker()
     # lineMarker1()
-    lineLabel()
+    # lineLabel()
+    lineLegend()
     pass
