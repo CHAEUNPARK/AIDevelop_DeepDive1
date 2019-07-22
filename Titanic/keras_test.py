@@ -47,3 +47,5 @@ model = KerasClassifier(build_fn=create_model, verbose=0)
 # print(gs.best_score_)
 
 model.fit(X_train, y_train)
+
+# Todo: grid search 너무 오래 걸림 해결 방안 찾기
