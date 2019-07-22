@@ -66,6 +66,13 @@ def lineLegend():
     plt.legend()
     plt.show()
 
+def lineAxis():
+    a = plt.plot([1, 2, 3, 4], [1, 4, 9, 16], 'ro')
+    b = plt.axis([0, 6, 0, 20])
+    plt.show()
+    print(a)
+    print(type(b), b)
+
 if __name__ == '__main__':
     # plot()
     # plot1()
@@ -75,5 +82,6 @@ if __name__ == '__main__':
     # lineMarker()
     # lineMarker1()
     # lineLabel()
-    lineLegend()
+    # lineLegend()
+    lineAxis()
     pass
