@@ -40,11 +40,16 @@ def lineMarker():
              markeredgecolor='red', markerfacecolor='green')
     plt.show()
 
+def lineMarker1():
+    plt.plot([1, 2, 3, 4], 'ro')
+    plt.show()
+
 if __name__ == '__main__':
     # plot()
     # plot1()
     # plot2()
     # lineStyle()
     # lineWidth()
-    lineMarker()
+    # lineMarker()
+    lineMarker1()
     pass
