@@ -139,6 +139,12 @@ def Pie():
     plt.pie(data)
     plt.show()
 
+def hist():
+    data = np.random.normal(5.0, 3.0, 1000)
+    plt.hist(data)
+    plt.xlabel('data')
+    plt.show()
+
 
 if __name__ == '__main__':
     # plot()
@@ -158,4 +164,5 @@ if __name__ == '__main__':
     # barchart()
     # Barh()
     # Pie()
+    hist()
     pass
