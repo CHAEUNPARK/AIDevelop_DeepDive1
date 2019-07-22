@@ -13,7 +13,7 @@ formatter = logging.Formatter('[%(filename)s:%(lineno)s)]%(asctime)s>%(message)s
 # fileHander = logging.FileHandler('../log/my.log', 'a', 'utf-8')  #한글깨짐 주의
 
 fileMaxByte = 1024 * 1024 * 100 #100MB
-fileHandler = logging.handlers.RotatingFileHandler('../log/my.log', maxBytes=fileMaxByte, backupCount=10, encoding='utf-8')
+fileHandler = logging.handlers.RotatingFileHandler('./log/my.log', maxBytes=fileMaxByte, backupCount=10, encoding='utf-8')
 streamHandler = logging.StreamHandler()
 
 # handler에 formmater 셋팅
