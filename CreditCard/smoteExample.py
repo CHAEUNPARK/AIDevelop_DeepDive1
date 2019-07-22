@@ -32,3 +32,17 @@ def rf(X_train, y_train, X_test, y_test, disc):
 
     print(disc + "matrix_recall_score : ", (cnf_matrix_rf[1, 1] / (cnf_matrix_rf[1, 0] + cnf_matrix_rf[1, 1]) * 100))
 
+if __name__ == "__main__":
+    X_train = creditcard.X_train
+    y_train = creditcard.y_train
+    X_test = creditcard.X_test
+    y_test = creditcard.y_test
+
+    X_smote = creditcard.X_train_res
+    y_smote = creditcard.y_train_res
+
+    logisticR(X_train, y_train, X_test, y_test, "smote전+logisticR")
+    logisticR(X_smote, y_smote, X_test, y_test, "smote후+logisticR")
+
+    rf(X_train, y_train, X_test, y_test, "smote전+RF")
+    rf(X_smote, y_smote, X_test, y_test, "smote후+RF")
