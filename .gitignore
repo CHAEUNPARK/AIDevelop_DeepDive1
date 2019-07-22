@@ -1,3 +1,4 @@
 .idea/
 venv/
 util/__pycache__/
+*.csv
