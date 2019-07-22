@@ -26,9 +26,17 @@ def lineStyle():
     plt.show()
     print(a)
 
+def lineWidth():
+    x = [1, 2, 3, 4, 5]
+    y = [1, 4, 9, 16, 25]
+    plt.plot(x, y, linewidth = 3.0)
+    plt.plot(x, y)
+    plt.show()
+
 if __name__ == '__main__':
     # plot()
     # plot1()
     # plot2()
-    lineStyle()
+    # lineStyle()
+    lineWidth()
     pass
