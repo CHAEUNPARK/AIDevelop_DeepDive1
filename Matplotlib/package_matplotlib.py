@@ -134,6 +134,11 @@ def Barh():
     print(b)
     plt.show()
 
+def Pie():
+    data = [5, 10, 30, 20, 7, 8, 10, 10]
+    plt.pie(data)
+    plt.show()
+
 
 if __name__ == '__main__':
     # plot()
@@ -152,4 +157,5 @@ if __name__ == '__main__':
     # scatter1()
     # barchart()
     # Barh()
+    # Pie()
     pass
