@@ -73,6 +73,21 @@ def lineAxis():
     print(a)
     print(type(b), b)
 
+def lineLabelTicks():
+    N = 5
+    menMeans = (20, 35, 30, 35, 27)
+    width = 0.01
+    ind = np.arange(N)
+    print(ind)
+    plt.bar(ind, menMeans)
+    plt.title('Scores by group and gender')
+    plt.ylabel('Scores')
+    plt.xlabel('The number of people')
+    plt.xticks(ind+width/2., ('G1', 'G2', 'G3', 'G4', 'G5'))
+    plt.yticks(np.arange(0, 81, 10))
+    plt.legend(('Men'))
+    plt.show()
+
 if __name__ == '__main__':
     # plot()
     # plot1()
@@ -83,5 +98,6 @@ if __name__ == '__main__':
     # lineMarker1()
     # lineLabel()
     # lineLegend()
-    lineAxis()
+    # lineAxis()
+    lineLabelTicks()
     pass
