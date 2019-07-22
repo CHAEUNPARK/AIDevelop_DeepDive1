@@ -44,6 +44,16 @@ def lineMarker1():
     plt.plot([1, 2, 3, 4], 'ro')
     plt.show()
 
+def lineLabel():
+    a = b = np.arange(0, 3, .02)
+    c = np.exp(a)
+    d = c[::-1]
+
+    plt.plot(a, c, 'k--', label = 'Model length')
+    plt.plot(a, d, 'k:', label = 'Data length')
+    plt.plot(a, c+d, 'k', label='Total message length')
+    plt.show()
+
 if __name__ == '__main__':
     # plot()
     # plot1()
@@ -51,5 +61,6 @@ if __name__ == '__main__':
     # lineStyle()
     # lineWidth()
     # lineMarker()
-    lineMarker1()
+    # lineMarker1()
+    lineLabel()
     pass
