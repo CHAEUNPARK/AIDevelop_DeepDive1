@@ -18,11 +18,26 @@ print(data.columns) #컬럼명 확인
 # plt.ylabel('Frequency')
 # plt.show()
 
-y = data['Class']
-X = data.drop(columns=['Time', 'Class'])
-y = y.values.reshape((-1, 1))
-print(X.shape)
-print(y.shape)
+
+# #####################################################################################
+# y = data['Class']
+# X = data.drop(columns=['Time', 'Class'])
+# y = y.values.reshape((-1, 1))
+# print(X.shape)
+# print(y.shape)
+# ######################################################################################
+
+#  amount standardscaler 전처리
+sdscaler = StandardScaler()
+data['normAmount'] = sdscaler.fit_transform(data['Amount'].values.reshape(-1, 1))
+data = data.drop(['Time', 'Amount'], axis=1) #불필요한 컬럼 삭제
+print(data.head())
+
+X = np.array(data.ix[:, data.columns != 'Class'])  #독립변수
+y = np.array(data.ix[:, data.columns == 'Class'])  #종속변수
+
+print('Shape of X: {}'.format(X.shape))
+print('Shape of y: {}'.format(y.shape))
 # 데이터 train, test 나누기
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
