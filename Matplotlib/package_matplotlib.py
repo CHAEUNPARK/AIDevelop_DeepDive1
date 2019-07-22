@@ -124,6 +124,17 @@ def barchart():
     plt.bar(ind, menMeans)
     plt.show()
 
+def Barh():
+    w_pop = np.array([5, 30, 45, 40], dtype=np.float32)
+    m_pop = np.array([4, 28, 40, 35], dtype=np.float32)
+    x = np.arange(4)
+    a = plt.barh(x, w_pop, color= 'r')
+    b = plt.barh(x, -m_pop)
+    print(a)
+    print(b)
+    plt.show()
+
+
 if __name__ == '__main__':
     # plot()
     # plot1()
@@ -139,5 +150,6 @@ if __name__ == '__main__':
     # lineLim()
     # scatter()
     # scatter1()
-    barchart()
+    # barchart()
+    # Barh()
     pass
