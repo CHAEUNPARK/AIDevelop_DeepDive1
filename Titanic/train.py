@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 #  data load
 train = pd.read_csv('./Titanic/train.csv')
 test = pd.read_csv('./Titanic/test.csv')
@@ -56,3 +57,28 @@ sex_mapping = {"male" : 0, "female" : 1}
 for dataset in combine :
     dataset['Sex'] = dataset['Sex'].map(sex_mapping)
 
+# Age Preprocessing
+train['Age'] = train['Age'].fillna(-0.5)
+test['Age'] = test['Age'].fillna(-0.5)
+bins = [-1, 0, 5, 12, 18, 24, 35, 60, np.inf]
+labels = ['Unknown', 'Baby', 'Child', 'Teenager', 'Student', 'Young Adult', 'Adult', 'Senior']
+train['AgeGroup'] = pd.cut(train['Age'], bins, labels=labels)
+test['AgeGroup'] = pd.cut(test['Age'], bins, labels=labels)
+
+age_title_mapping = {1: "Young Adult", 2: "Student", 3: "Adult", 4: "Baby", 5: "Adult", 6: "Adult"}
+
+for x in range(len(train['AgeGroup'])):
+    if train['AgeGroup'][x] == "Unknown":
+        train['AgeGroup'][x] = age_title_mapping[train["Title"][x]]
+
+for x in range(len(test['AgeGroup'])):
+    if test['AgeGroup'][x] == "Unknown":
+        test['AgeGroup'][x] = age_title_mapping[test["Title"][x]]
+
+age_mapping = {'Baby' : 1, 'Child' : 2, 'Teenager' : 3, 'Student' : 4, 'Young Adult' : 5, 'Adult' : 6, 'Senior' : 7}
+
+train['AgeGroup'] = train['AgeGroup'].map(age_mapping)
+test['AgeGroup'] = test['AgeGroup'].map(age_mapping)
+
+train = train.drop(['Age'], axis = 1)
+test = test.drop(['Age'], axis = 1)
