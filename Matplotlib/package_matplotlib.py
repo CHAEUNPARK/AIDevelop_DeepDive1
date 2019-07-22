@@ -14,7 +14,14 @@ def plot1():
 
     plt.show()
 
+def plot2():
+    years = [x for x in range(1950, 2011, 10)]
+    gdp = [y for y in np.random.randint(300, 10000, size=7)]
+    plt.plot(years, gdp, color='g')
+    plt.show()
+
 if __name__ == '__main__':
     # plot()
     # plot1()
+    # plot2()
     pass
