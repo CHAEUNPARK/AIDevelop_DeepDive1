@@ -145,6 +145,11 @@ def hist():
     plt.xlabel('data')
     plt.show()
 
+def hist1():
+    data = np.random.normal(5.0, 3.0, 1000)
+    plt.hist(data, bins=15, facecolor='red', alpha=0.4)
+    plt.xlabel('data')
+    plt.show()
 
 if __name__ == '__main__':
     # plot()
@@ -164,5 +169,6 @@ if __name__ == '__main__':
     # barchart()
     # Barh()
     # Pie()
-    hist()
+    # hist()
+    hist1()
     pass
