@@ -24,32 +24,30 @@ X_train_data = train.drop(['Survived'], axis=1)
 X_train = X_train_data
 y_train = Y_train_data
 
-# model = KerasClassifier(build_fn=create_model, verbose=0)
-model = create_model()
+model = KerasClassifier(build_fn=create_model, verbose=0)
+# model = create_model()
 # optimizers = ['rmsprop', 'adam']
-# # init = ['glorot_uniform', 'normal', 'uniform']
-# epochs = [50, 100]
-# batches = [3, 5]
-# param_grid = dict(optimizer=optimizers,
-#                   epochs=epochs,
-#                   batch_size=batches,
-#                   )
-#
-# gs = GridSearchCV(estimator=model,
-#                   param_grid=param_grid,
-#                   scoring='accuracy',
-#                   cv=5,
-#                   n_jobs=-1)
-#
-# gs.fit(X_train, y_train)
-#
-# print(gs.best_params_)
-# print(gs.best_score_)
+# init = ['glorot_uniform', 'normal', 'uniform']
+epochs = [50, 100]
+batches = [3, 5]
+param_grid = dict(epochs=epochs,
+                  batch_size=batches)
 
-model.fit(X_train, y_train, epochs=300, batch_size=3)
+gs = GridSearchCV(estimator=model,
+                  param_grid=param_grid,
+                  scoring='accuracy',
+                  cv=5,
+                  n_jobs=-1)
 
-loss, acc = model.evaluate(X_train, y_train, batch_size=3)
+gs.fit(X_train, y_train)
 
-print("acc : ", acc)
+print(gs.best_params_)
+print(gs.best_score_)
+
+# model.fit(X_train, y_train, epochs=300, batch_size=3)
+#
+# loss, acc = model.evaluate(X_train, y_train, batch_size=3)
+#
+# print("acc : ", acc)
 
 # Todo: grid search 너무 오래 걸림 해결 방안 찾기
