@@ -5,7 +5,7 @@ import pandas as pd
 from keras.wrappers.scikit_learn import KerasClassifier
 from keras.models import Sequential
 from keras.layers import Dense
-
+import joblib
 # Function to create model, required for KerasClassifier
 def create_model(optimizer='adam', init='glorot_uniform'):
     model = Sequential()
@@ -50,4 +50,5 @@ print(gs.best_score_)
 #
 # print("acc : ", acc)
 
+joblib.dump(gs, './Titanic/keras_gs_model.joblib')
 # Todo: grid search 너무 오래 걸림 해결 방안 찾기
