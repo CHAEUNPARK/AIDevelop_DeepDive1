@@ -98,7 +98,7 @@ test = pd.get_dummies(test)
 train_label = train['Survived']
 train_data = train.drop('Survived', axis=1)
 test_data = test.drop('PassengerId', axis=1).copy()
-
+test_data['Fare'].fillna(test_data['Fare'].mean(), inplace=True)
 def train_and_test(model, train_data, train_label):
     from sklearn.metrics import accuracy_score
     X_train, X_test, Y_train, Y_test = train_test_split(train_data, train_label, test_size=0.2, shuffle=True, random_state=5)
@@ -108,14 +108,30 @@ def train_and_test(model, train_data, train_label):
     print("Accuracy: ", model, accuracy, "%")
     return prediction
 
+def train_and_testcv(model, train_data, train_label, test, disp):
+    from sklearn.model_selection import cross_val_score
+    scores = cross_val_score(model, train_data, train_label, cv = 10)
+    print(scores)
+    print(disp+ 'rf k-fold CV score:{:2f}%'.format(scores.mean()))
+    model.fit(train_data, train_label)
+    prediction = model.predict(test)
+    return prediction
+
+
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 
 log_pred = train_and_test(LogisticRegression(), train_data, train_label)
-svm_pred = train_and_test(SVC(), train_data, train_label)
+# svm_pred = train_and_test(SVC(), train_data, train_label)
+svm_pred = train_and_testcv(SVC(), train_data, train_label,test_data,'SVM')
 rf_pred = train_and_test(RandomForestClassifier(n_estimators=100), train_data, train_label)
 
+submission = pd.DataFrame({
+    "PassengerId" : test["PassengerId"],
+    "Survived" : svm_pred
+})
+submission.to_csv('./Titanic_example/submission_rf.csv', index=False)
 
 # if __name__ == '__main__':
 #     # pie_chart('Sex')
