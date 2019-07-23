@@ -141,3 +141,5 @@ submission.to_csv('./Titanic_example/submission_rf.csv', index=False)
 #     # bar_chart('Parch')
 #     # bar_chart('Embarked')
 #     pass
+
+import missingno as msno
