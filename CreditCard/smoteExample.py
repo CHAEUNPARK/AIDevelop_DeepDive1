@@ -10,6 +10,7 @@ import seaborn as sns
 sns.set()
 import warnings
 warnings.filterwarnings("ignore")
+import numpy as np
 
 def logisticR(X_train, y_train, X_test, y_test, disc):
     lr = LogisticRegression()
@@ -46,3 +47,16 @@ if __name__ == "__main__":
 
     rf(X_train, y_train, X_test, y_test, "smote전+RF")
     rf(X_smote, y_smote, X_test, y_test, "smote후+RF")
+    ################################Grid Search########################################
+    lr = LogisticRegression()
+    from sklearn.model_selection import GridSearchCV
+
+    parameters = {
+        'C': np.linspace(1, 10, 10),
+        'penalty': ['l1', 'l2']
+    }
+
+    clf = GridSearchCV(lr, parameters, cv=5, verbose=5, n_jobs=-1)
+    print(" << clt = fit >>")
+    clf.fit(X_smote, y_smote.ravel())
+    print("<< Best parmas >>", clf.best_score_, clf.best_params_, clf.best_estimator_)
