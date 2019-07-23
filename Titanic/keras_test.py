@@ -6,8 +6,10 @@ from keras.wrappers.scikit_learn import KerasClassifier
 from keras.models import Sequential
 from keras.layers import Dense
 import joblib
+
+
 # Function to create model, required for KerasClassifier
-def create_model(optimizer='adam', init='glorot_uniform'):
+def create_model(optimizer='SGD', init='glorot_uniform'):
     model = Sequential()
     model.add(Dense(10, input_dim=8, kernel_initializer=init, activation='relu'))
     model.add(Dense(15))
@@ -28,8 +30,8 @@ model = KerasClassifier(build_fn=create_model, verbose=0)
 # model = create_model()
 # optimizers = ['rmsprop', 'adam']
 # init = ['glorot_uniform', 'normal', 'uniform']
-epochs = [50, 100]
-batches = [3, 5]
+epochs = [50, 100, 150, 200]
+batches = [10, 20, 50, 100]
 param_grid = dict(epochs=epochs,
                   batch_size=batches)
 
