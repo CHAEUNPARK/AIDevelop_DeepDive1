@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 #  data load
-train = pd.read_csv('./Titanic/train.csv')
-test = pd.read_csv('./Titanic/test.csv')
+train = pd.read_csv('./data/train.csv')
+test = pd.read_csv('./data/test.csv')
 gender_submission = pd.read_csv('./Titanic/gender_submission.csv')
 
 # remove columns

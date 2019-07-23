@@ -6,7 +6,7 @@ from imblearn.over_sampling import SMOTE
 from sklearn.model_selection import train_test_split
 
 # 데이터 로드
-data = pd.read_csv('./CreditCard/creditcard.csv')
+data = pd.read_csv('./data/creditcard.csv')
 print(data.head())
 print(data.columns) #컬럼명 확인
 # 데이터 빈도수 확인
