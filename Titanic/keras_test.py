@@ -24,8 +24,8 @@ X_train_data = train.drop(['Survived'], axis=1)
 X_train = X_train_data
 y_train = Y_train_data
 
-model = KerasClassifier(build_fn=create_model, verbose=0)
-
+# model = KerasClassifier(build_fn=create_model, verbose=0)
+model = create_model()
 # optimizers = ['rmsprop', 'adam']
 # # init = ['glorot_uniform', 'normal', 'uniform']
 # epochs = [50, 100]
@@ -46,6 +46,10 @@ model = KerasClassifier(build_fn=create_model, verbose=0)
 # print(gs.best_params_)
 # print(gs.best_score_)
 
-model.fit(X_train, y_train)
+model.fit(X_train, y_train, epochs=300, batch_size=3)
+
+loss, acc = model.evaluate(X_train, y_train, batch_size=3)
+
+print("acc : ", acc)
 
 # Todo: grid search 너무 오래 걸림 해결 방안 찾기
