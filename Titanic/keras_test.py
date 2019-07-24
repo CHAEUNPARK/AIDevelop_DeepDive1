@@ -9,7 +9,7 @@ import joblib
 
 
 # Function to create model, required for KerasClassifier
-def create_model(optimizer='SGD', init='glorot_uniform'):
+def create_model(optimizer='adam', init='glorot_uniform'):
     model = Sequential()
     model.add(Dense(10, input_dim=8, kernel_initializer=init, activation='relu'))
     model.add(Dense(15))
@@ -28,11 +28,13 @@ y_train = Y_train_data
 
 model = KerasClassifier(build_fn=create_model, verbose=0)
 # model = create_model()
-# optimizers = ['rmsprop', 'adam']
-# init = ['glorot_uniform', 'normal', 'uniform']
+optimizers = ['rmsprop', 'adam', 'SGD']
+init = ['glorot_uniform', 'normal', 'uniform']
 epochs = [50, 100, 150, 200]
 batches = [10, 20, 50, 100]
-param_grid = dict(epochs=epochs,
+param_grid = dict(optimizer=optimizers,
+                  epochs=epochs,
+                  init=init,
                   batch_size=batches)
 
 gs = GridSearchCV(estimator=model,

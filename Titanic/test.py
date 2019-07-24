@@ -31,15 +31,15 @@ print(all_accuracies)
 
 
 grid_param = {
-    'n_estimators' : [100, 300, 500, 800, 1000],
+    'n_estimators' : [50, 100, 300, 500, 800, 1000],
     'criterion' : ['gini', 'entropy'],
-    'bootstrap' : [True, False]
+    'bootstrap' : [True, False],
 }
 
 gs = GridSearchCV(estimator=classifier,
                   param_grid=grid_param,
                   scoring='accuracy',
-                  cv=5,
+                  cv=10,
                   n_jobs=-1)
 
 gs.fit(X_train, y_train)
