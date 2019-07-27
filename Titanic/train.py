@@ -50,6 +50,7 @@ for dataset in combine:
 del train['Name']
 del train['PassengerId']
 del test['Name']
+del test['PassengerId']
 combine = [train, test]
 
 # Sex Preprocessing
